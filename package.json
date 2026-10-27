@@ -1,0 +1,24 @@
+{
+  "name": "ui5-material-inventory",
+  "version": "1.0.0",
+  "description": "OpenUI5 material inventory portfolio demonstrating MVC, JSONModel binding, and combined search and plant filters.",
+  "scripts": {
+    "start": "ui5 serve --port 8081"
+  },
+  "keywords": [
+    "openui5",
+    "sapui5",
+    "portfolio",
+    "inventory",
+    "fiori"
+  ],
+  "author": "Rio Le",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@ui5/cli": "^4.0.71"
+  },
+  "engines": {
+    "node": ">=20.11.0 <21 || >=22.0.0"
+  }
+}

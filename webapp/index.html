@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Material Inventory</title>
+
+    <script
+      id="sap-ui-bootstrap"
+      src="resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_horizon"
+      data-sap-ui-libs="sap.m"
+      data-sap-ui-async="true"
+      data-sap-ui-resourceroots='{
+            "com.portfolio.materialinventory": "./"
+        }'
+    ></script>
+
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        sap.ui.require(["sap/ui/core/mvc/XMLView"], function (XMLView) {
+          XMLView.create({
+            viewName: "com.portfolio.materialinventory.view.Main",
+          }).then(function (view) {
+            view.placeAt("content");
+          });
+        });
+      });
+    </script>
+
+    <style>
+      html,
+      body,
+      #content {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body class="sapUiBody" id="content"></body>
+</html>

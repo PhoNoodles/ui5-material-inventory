@@ -1,0 +1,25 @@
+{
+  "materials": [
+    {
+      "materialId": "MAT-1001",
+      "description": "Steel Bolts",
+      "plant": "1000",
+      "quantity": 250,
+      "unit": "PC"
+    },
+    {
+      "materialId": "MAT-1002",
+      "description": "Aluminum Sheets",
+      "plant": "1000",
+      "quantity": 120,
+      "unit": "PC"
+    },
+    {
+      "materialId": "MAT-1003",
+      "description": "Rubber Seals",
+      "plant": "2000",
+      "quantity": 75,
+      "unit": "PC"
+    }
+  ]
+}

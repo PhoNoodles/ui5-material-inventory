@@ -1,0 +1,78 @@
+
+<mvc:View
+    controllerName="com.portfolio.materialinventory.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true"
+    height="100%">
+
+    <App>
+        <Page title="Material Inventory Management">
+            <content>
+                <VBox class="sapUiSmallMargin">
+
+
+                    <Title text="Material Stock Overview" />
+                    
+                    <SearchField
+                        id="materialSearch"
+                        width="100%"
+                        placeholder="Search materials by ID or description"
+                        liveChange=".onSearch" />
+                    <Select
+                        id="plantSelect"
+                        width="200px"
+                        selectedKey="ALL"
+                        change=".onFilterChange">
+
+                        <items>
+                            <core:Item key="ALL" text="All Plants" />
+                            <core:Item key="1000" text="Plant 1000" />
+                            <core:Item key="2000" text="Plant 2000" />
+                        </items>
+
+                    </Select>
+
+
+                    <Table id="materialsTable" items="{/materials}">
+                        <columns>
+                            <Column>
+                                <Text text="Material ID" />
+                            </Column>
+                            <Column>
+                                <Text text="Description" />
+                            </Column>
+                            <Column>
+                                <Text text="Plant" />
+                            </Column>
+                            <Column>
+                                <Text text="Quantity" />
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{materialId}" />
+                                    <Text text="{description}" />
+                                    <Text text="{plant}" />
+                                    <ObjectNumber
+                                        number="{quantity}"
+                                        unit="{unit}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <Button
+                        text="Load Materials"
+                        press=".onLoadMaterials"
+                        type="Emphasized" />
+
+                </VBox>
+            </content>
+        </Page>
+    </App>
+
+</mvc:View>
