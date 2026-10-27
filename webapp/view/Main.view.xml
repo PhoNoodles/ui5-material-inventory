@@ -14,7 +14,7 @@
 
 
                     <Title text="Material Stock Overview" />
-                    
+
                     <SearchField
                         id="materialSearch"
                         width="100%"
