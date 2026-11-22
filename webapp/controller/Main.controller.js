@@ -1,32 +1,16 @@
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/m/MessageToast",
   ],
-  function (Controller, JSONModel, Filter, FilterOperator, MessageToast) {
+  function (Controller, Filter, FilterOperator, MessageToast) {
     "use strict";
 
     return Controller.extend(
       "com.portfolio.materialinventory.controller.Main",
       {
-        // Initialize the application
-        onInit: function () {
-          const oModel = new JSONModel();
-
-          // Load material inventory data
-          oModel.loadData(
-            sap.ui.require.toUrl(
-              "com/portfolio/materialinventory/model/materials.json",
-            ),
-          );
-
-          // Attach the model to the View
-          this.getView().setModel(oModel);
-        },
-
         // Triggered when user types in the search field
         onSearch: function () {
           this.applyFilters();
@@ -76,6 +60,18 @@ sap.ui.define(
         // Handle Load Materials button
         onLoadMaterials: function () {
           MessageToast.show("Materials loaded!");
+        },
+
+        onMaterialPress: function (oEvent) {
+          const oItem = oEvent.getSource();
+          const oContext = oItem.getBindingContext();
+          const oMaterial = oContext.getObject();
+
+          const oRouter = this.getOwnerComponent().getRouter();
+
+          oRouter.navTo("materialDetail", {
+            materialId: oMaterial.materialId,
+          });
         },
       },
     );

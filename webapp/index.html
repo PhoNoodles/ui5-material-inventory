@@ -10,20 +10,24 @@
       data-sap-ui-theme="sap_horizon"
       data-sap-ui-libs="sap.m"
       data-sap-ui-async="true"
-      data-sap-ui-resourceroots='{
+      data-sap-ui-resource-roots='{
             "com.portfolio.materialinventory": "./"
         }'
     ></script>
 
     <script>
       sap.ui.getCore().attachInit(function () {
-        sap.ui.require(["sap/ui/core/mvc/XMLView"], function (XMLView) {
-          XMLView.create({
-            viewName: "com.portfolio.materialinventory.view.Main",
-          }).then(function (view) {
-            view.placeAt("content");
-          });
-        });
+        sap.ui.require(
+          ["sap/ui/core/ComponentContainer"],
+          function (ComponentContainer) {
+            new ComponentContainer({
+              name: "com.portfolio.materialinventory",
+              height: "100%",
+              async: true,
+              manifest: true,
+            }).placeAt("content");
+          },
+        );
       });
     </script>
 
