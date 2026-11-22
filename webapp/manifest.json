@@ -15,6 +15,43 @@
         "sap.ui.core": {},
         "sap.m": {}
       }
+    },
+    "rootView": {
+      "viewName": "com.portfolio.materialinventory.view.App",
+      "type": "XML",
+      "id": "app"
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "com.portfolio.materialinventory.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "materialList",
+          "pattern": "",
+          "target": "main"
+        },
+        {
+          "name": "materialDetail",
+          "pattern": "materials/{materialId}",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "main": {
+          "viewName": "Main",
+          "viewId": "main"
+        },
+        "detail": {
+          "viewName": "Detail",
+          "viewId": "detail"
+        }
+      }
     }
   }
 }

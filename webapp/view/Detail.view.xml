@@ -1,0 +1,33 @@
+<mvc:View
+    controllerName="com.portfolio.materialinventory.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        title="Material Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+        <content>
+            <VBox class="sapUiSmallMargin">
+
+                <Title
+                    text="{description}"
+                    level="H2" />
+
+                <Label text="Material ID" />
+                <Text text="{materialId}" />
+
+                <Label text="Plant" />
+                <Text text="{plant}" />
+
+                <Label text="Quantity" />
+                <ObjectNumber
+                    number="{quantity}"
+                    unit="{unit}" />
+
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>
