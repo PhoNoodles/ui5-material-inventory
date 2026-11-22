@@ -12,14 +12,20 @@ sap.ui.define(
         UIComponent.prototype.init.apply(this, arguments);
 
         const oModel = new JSONModel();
+        oModel.attachRequestCompleted(function (oEvent) {
+          if (!oEvent.getParameter("success")) {
+            console.error("Failed to load material inventory data");
+          }
+
+          this.getRouter().initialize();
+        }, this);
+
         oModel.loadData(
           sap.ui.require.toUrl(
             "com/portfolio/materialinventory/model/materials.json",
           ),
         );
         this.setModel(oModel);
-
-        this.getRouter().initialize();
       },
     });
   },
